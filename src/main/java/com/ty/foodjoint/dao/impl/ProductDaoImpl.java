@@ -7,26 +7,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ty.foodjoint.dao.ProductDao;
-import com.ty.foodjoint.dto.Product; 
+import com.ty.foodjoint.dto.Product;
 
 import com.ty.foodjoint.repository.Productrepository;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
 	@Autowired
-	private Productrepository productrepository ;
-	
+	private Productrepository productrepository;
+
 	@Override
 	public Product save(Product product) {
-		
+
 		return productrepository.save(product);
 	}
- 
+
 	@Override
 	public Product getbyid(int id) {
-		
-		Optional<Product> optional= productrepository.findById(id);
-		if(optional.isPresent()) {
+
+		Optional<Product> optional = productrepository.findById(id);
+		if (optional.isPresent()) {
 			return optional.get();
 		}
 		return null;
@@ -40,8 +40,8 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public Product update(int id, Product product) {
-		Product exsitingproduct=getbyid(id);
-		if(exsitingproduct != null) {
+		Product exsitingproduct = getbyid(id);
+		if (exsitingproduct != null) {
 			exsitingproduct.setCost(product.getCost());
 			exsitingproduct.setDesc(product.getDesc());
 			exsitingproduct.setFoodtype(product.getFoodtype());
@@ -56,12 +56,11 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
-		Product product=getbyid(id);
-		if(product !=null) {
+		Product product = getbyid(id);
+		if (product != null) {
 			productrepository.delete(product);
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
@@ -70,7 +69,7 @@ public class ProductDaoImpl implements ProductDao {
 	public List<Product> getByType(String type) {
 		// TODO Auto-generated method stub
 		return productrepository.findByType(type);
-		
+
 	}
 
 }

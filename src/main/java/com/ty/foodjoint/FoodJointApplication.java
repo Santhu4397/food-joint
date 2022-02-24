@@ -10,8 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class FoodJointApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FoodJointApplication.class, args); 
+		SpringApplication.run(FoodJointApplication.class, args);
 	}
 
 }
- 

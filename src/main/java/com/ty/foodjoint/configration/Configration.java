@@ -19,17 +19,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class Configration {
 	@Bean
 	public Docket getDocket() {
-		
-		springfox.documentation.service.Contact contact=new springfox.documentation.service.Contact("Alpha Team", "www.google", "google@gmail.com");
-		List<VendorExtension> extensions=new ArrayList<VendorExtension>();
-		ApiInfo info =new ApiInfo("Food joint api", "----------", "ty-1.01", "https://tedtyantra.com",contact , "gt"," http://localhost:8080/swagger-ui.html", extensions);
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.ty.foodjoint"))
-				.build()
-				.apiInfo(info)
-				.useDefaultResponseMessages(false)
-				;
+
+		springfox.documentation.service.Contact contact = new springfox.documentation.service.Contact("Alpha Team",
+				"www.google", "google@gmail.com");
+		List<VendorExtension> extensions = new ArrayList<VendorExtension>();
+		ApiInfo info = new ApiInfo("Food joint api", "----------", "ty-1.01", "https://tedtyantra.com", contact, "gt",
+				" http://localhost:8080/swagger-ui.html", extensions);
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("com.ty.foodjoint")).build().apiInfo(info)
+				.useDefaultResponseMessages(false);
 	}
 
 }
